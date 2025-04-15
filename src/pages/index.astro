@@ -1,11 +1,76 @@
+<!-- src/pages/index.astro -->
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar.astro';  
+import '../styles/global.css'; 
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashlee Gabourel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Background Container (just color, no other content) -->
+    <div class="background-container">
+      <Navbar />
+    </div>
+
+    <!-- Social Icons (outside of the background container) -->
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/ashlee-gabourel" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/agabourel" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+
+    <!-- Profile Image -->
+    <div class="image-container">
+      <img src="public/Images/IMG_2937.jpg" alt="Ashlee Gabourel" class="profile-image" />
+    </div>
+
+    <!-- Page Content -->
+    <h1>Ashlee Gabourel</h1>
+    <h3>MSE PhD Candidate at Cornell University</h3>
+    
+    <section id="home">
+      <h2>Biography</h2>
+      <p> Under Construction! </p>
+    </section>
+    <section id="research">
+      <h2>Research</h2>
+      <p>Under Construction!</p>
+    </section>
+    <section id="projects">
+      <h2>Personal Projects</h2>
+      <p>Under Construction! </p>
+    </section>
+    <section id="cv">
+      <h2>CV</h2>
+      <p> Under Construction! </p>
+    </section>
+    <section id="blog">
+      <h2><a href="/blog" style="text-decoration: underline; color: inherit;">Read My Blog</a></h2>
+    </section>
+
+    <!-- JavaScript for adding the active class to the navbar tabs -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('nav ul li a');
+        
+        links.forEach(link => {
+          link.addEventListener('click', function() {
+            // Remove 'active' class from all tabs
+            links.forEach(link => link.parentElement.classList.remove('active'));
+            
+            // Add 'active' class to the clicked tab
+            this.parentElement.classList.add('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
